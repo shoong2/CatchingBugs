@@ -5,12 +5,12 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
     public bool isDie;
-    AudioSource itemSnd;
+    //AudioSource itemSnd;
 
     void Start()
     {
         isDie = false;
-        itemSnd = GetComponent<AudioSource>();
+        //itemSnd = GetComponent<AudioSource>();
         
     }
 
@@ -21,16 +21,15 @@ public class player : MonoBehaviour
     }
     void OnCollisionEnter(Collision other) {
 
-         if(other.gameObject.tag == "moki")
+        if(other.gameObject.tag == "moki" || other.gameObject.tag == "baki")
         {
-            
             isDie = true;
         }
 
-        else if(other.gameObject.tag == "baki")
-        {
-            isDie = true;
-        }
+        // else if(other.gameObject.tag == "baki")
+        // {
+        //     isDie = true;
+        // }
 
         
 
@@ -43,9 +42,9 @@ public class player : MonoBehaviour
     //     }
     // }
 
-    public void itemAudio()
-    {
-        itemSnd.Play();
-    }
+    // public void itemAudio()
+    // {
+    //     itemSnd.Play();
+    // }
 
 }

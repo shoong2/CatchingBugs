@@ -25,8 +25,8 @@ public class GetItem : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if(other.tag == "Player")
         {
-            Player.itemAudio();
-            Debug.Log("hi");
+            Audio.instance.itemsound();
+            //Player.itemAudio();
             healthgauge.getItem();
             Destroy(gameObject);
         }

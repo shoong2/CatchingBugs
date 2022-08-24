@@ -15,56 +15,28 @@ public class particle : MonoBehaviour
         //  bakiDie = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+ 
+
+    // void OnTriggerEnter(Collider other) 
+    // {
         
-    }
-
-    void OnTriggerEnter(Collider other) {
+    //     if(other.tag == "moki")
+    //     {
+    //         PlaySE();
+    //         Moki moki = other.GetComponent<Moki>();
+    //         if(moki != null)
+    //         {
+    //             //GameManager.instance.mokiCount +=1;
+    //             GameManager.instance.data.coin+=1;
+    //             moki.die();
+    //         }
+    //     }   
         
-        if(other.tag == "moki")
-        {
-            PlaySE();
-            Moki moki = other.GetComponent<Moki>();
-            if(moki != null)
-            {
-                //GameManager.instance.mokiCount +=1;
-                GameManager.instance.data.coin+=1;
-                moki.die();
-            }
-        }
-
-        // else if(other.tag == "baki")
-        // {
-        //     bakiDie +=1;
-        //     newMoki baki = other.GetComponent<newMoki>();
-        //     Rigidbody rigid = other.GetComponent<Rigidbody>();
-        //     if(baki != null)
-        //     {
-        //         Vector3 reactVec = baki.transform.position - transform.position;
-        //         // moki.die();
-                
-        //         reactVec = reactVec.normalized;
-        //         // reactVec += Vector3.up;
-
-        //         rigid.AddForce(reactVec *50, ForceMode.Impulse);
-
-                
-                
-        //     }
-
-        //     if(bakiDie == 3)
-        //     {
-        //         baki.die();
-        //     }
-        //}
-        
-    }
+    // }
 
    
 
-     public void PlaySE()
+    public void PlaySE()
     {
         int _temp = Random.Range(0,4);
 

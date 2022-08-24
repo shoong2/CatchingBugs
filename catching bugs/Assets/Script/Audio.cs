@@ -9,11 +9,12 @@ public class Audio : MonoBehaviour
 
     public static Audio instance;
 
-    public AudioClip mokiDie;
-    public AudioClip sndWave;
+    public AudioClip itemSound;
+    public AudioClip WaveSound;
 
     AudioSource myAudio;
     
+    [SerializeField] AudioClip[] clip;
 
     void Start()
     {
@@ -27,7 +28,20 @@ public class Audio : MonoBehaviour
 
     public void newWave()
     {
-        myAudio.PlayOneShot(sndWave);
+        myAudio.PlayOneShot(WaveSound);
+    }
+
+    public void BugDie_Sound()
+    {
+        int _temp = Random.Range(0,4);
+
+        myAudio.clip = clip[_temp];
+        myAudio.Play();
+    }
+
+    public void itemsound()
+    {
+        myAudio.PlayOneShot(itemSound);
     }
 
 }

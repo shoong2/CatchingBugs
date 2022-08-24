@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public GameObject tutorial;
     // public GameObject controlPanel;
 
-    AudioSource newWave;
+    //AudioSource newWave;
     joy gm;
     // Moki moki;
     
@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     private void Awake() {
         instance = this;
         
+        
     }
     
 
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
         string loadJson = File.ReadAllText(Application.persistentDataPath + "/Data.json"); //시작할때 데이터 로드
         data = JsonUtility.FromJson<Data>(loadJson); //로드한 데이터 data에 입력
         Debug.Log(Application.persistentDataPath);
+        coin_all.text ="Coin: "+data.coin.ToString();
 
 
         bool value = System.Convert.ToBoolean(PlayerPrefs.GetInt("Keyword"));
@@ -83,7 +85,7 @@ public class GameManager : MonoBehaviour
 
         remainTime = 20f;
 
-        newWave = GetComponent<AudioSource>();
+        //newWave = GetComponent<AudioSource>();
         StartCoroutine(timeSet(score));
 
         
@@ -125,7 +127,8 @@ public class GameManager : MonoBehaviour
         if(remainTime < 0f)
         {
             remainTime = 20f;
-            newWave.Play();
+            //newWave.Play();
+            Audio.instance.newWave();
         }
 
 
@@ -218,6 +221,7 @@ public class GameManager : MonoBehaviour
     }
     
     
+
 
 }
 

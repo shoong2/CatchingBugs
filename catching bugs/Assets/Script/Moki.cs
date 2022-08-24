@@ -6,6 +6,7 @@ public class Moki : MonoBehaviour
 {
     Transform player;
     public float speed;
+    //AudioSource theAudio;
 
     Rigidbody rigid;
     // private Rigidbody bulletRigidbody;
@@ -13,11 +14,15 @@ public class Moki : MonoBehaviour
     // {
     //     bulletRigidbody = GetComponent<Rigidbody>();
     //     bulletRigidbody.velocity = transform.forward*speed;
+    //[SerializeField] AudioClip[] clip;
         
     void Start() {
         player = GameObject.FindWithTag("Player").transform;
         rigid = GetComponent<Rigidbody>();
+        //theAudio = GetComponent<AudioSource>();
     }
+
+    
     
    
     void Update() {
@@ -39,6 +44,23 @@ public class Moki : MonoBehaviour
     void FixedUpdate() {
           FreezeVelocity();
     }
-
     
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.tag =="spray")
+            {
+                Audio.instance.BugDie_Sound();
+                Destroy(gameObject);
+
+            }   
+    }
+
+    // public void PlaySE()
+    // {
+    //     int _temp = Random.Range(0,4);
+
+    //     theAudio.clip = clip[_temp];
+    //     theAudio.Play();
+    // }
 }
